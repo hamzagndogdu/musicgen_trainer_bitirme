@@ -4,7 +4,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset_path', type=str, required=True)
-parser.add_argument('--model_id', type=str, required=False, default='small')
+parser.add_argument('--model_id', type=str, required=False, default='medium')
 parser.add_argument('--lr', type=float, required=False, default=1e-5)
 parser.add_argument('--epochs', type=int, required=False, default=100)
 parser.add_argument('--use_wandb', type=int, required=False, default=0)

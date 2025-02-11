@@ -18,7 +18,7 @@ import wandb
 
 from data.dataloaders import AudioWBDS
 
-model = MusicGen.get_pretrained('facebook/musicgen-medium')
+model = MusicGen.get_pretrained('medium')
 model.lm = model.lm.to(torch.float32) #important
 
 dataset = AudioWBDS(

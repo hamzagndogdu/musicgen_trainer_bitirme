@@ -14,7 +14,7 @@ from torch.utils.data import Dataset
 from audiocraft.modules.conditioners import ClassifierFreeGuidanceDropout
 
 import os
-
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
 
 class AudioDataset(Dataset):
     def __init__(self, data_dir, no_label=False):

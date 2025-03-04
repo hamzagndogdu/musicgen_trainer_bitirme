@@ -113,13 +113,18 @@ def train(
     weight_decay: float = 1e-5,
     warmup_steps: int = 10,
     batch_size: int = 4,
-    use_cfg: bool = False
+    use_cfg: bool = False,
+    gradient_checkpointing: bool = True
 ):
     if use_wandb:
         run = wandb.init(project="audiocraft")
 
     model = MusicGen.get_pretrained(model_id)
     model.lm = model.lm.to(torch.float32)  # important
+
+    # Gradient checkpointing aktif ediliyor
+    if gradient_checkpointing:
+    model.lm.gradient_checkpointing_enable()
 
     dataset = AudioDataset(dataset_path, no_label=no_label)
     train_dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)

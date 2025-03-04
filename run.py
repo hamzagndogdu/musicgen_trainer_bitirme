@@ -12,10 +12,11 @@ parser.add_argument('--save_step', type=int, required=False, default=None)
 parser.add_argument('--no_label', type=int, required=False, default=0)
 parser.add_argument('--tune_text', type=int, required=False, default=0)
 parser.add_argument('--weight_decay', type=float, required=False, default=1e-5)
-parser.add_argument('--grad_acc', type=int, required=False, default=2)
+parser.add_argument('--grad_acc', type=int, required=False, default=8)
 parser.add_argument('--warmup_steps', type=int, required=False, default=16)
 parser.add_argument('--batch_size', type=int, required=False, default=1)
 parser.add_argument('--use_cfg', type=int, required=False, default=0)
+parser.add_argument('--gradient_checkpointing', type=int, required=False, default=1)
 args = parser.parse_args()
 
 train(
@@ -32,4 +33,5 @@ train(
     warmup_steps=args.warmup_steps,
     batch_size=args.batch_size,
     use_cfg=args.use_cfg,
+    gradient_checkpointing=args.gradient_checkpointing,
 )

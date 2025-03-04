@@ -16,7 +16,7 @@ parser.add_argument('--grad_acc', type=int, required=False, default=8)
 parser.add_argument('--warmup_steps', type=int, required=False, default=16)
 parser.add_argument('--batch_size', type=int, required=False, default=1)
 parser.add_argument('--use_cfg', type=int, required=False, default=0)
-parser.add_argument('--gradient_checkpointing', type=int, required=False, default=1)
+
 args = parser.parse_args()
 
 train(
@@ -33,5 +33,5 @@ train(
     warmup_steps=args.warmup_steps,
     batch_size=args.batch_size,
     use_cfg=args.use_cfg,
-    gradient_checkpointing=args.gradient_checkpointing,
+   
 )
